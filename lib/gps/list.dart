@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'state.dart';
+import 'package:routes_app/gps/state.dart';
 
 class RoutesList extends StatelessWidget {
   const RoutesList({super.key, required this.onItemPressed});

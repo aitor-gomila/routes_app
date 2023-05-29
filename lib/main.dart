@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'gps/recording.dart';
-import 'gps/state.dart';
-import 'gps/list.dart';
-import 'gps/view.dart';
+import 'package:routes_app/gps/state.dart';
+import 'package:routes_app/gps/list.dart';
+import 'package:routes_app/gps/view.dart';
+import 'package:routes_app/gps/recording.dart';
+import 'package:routes_app/gps/notification.dart';
+import 'package:routes_app/gps/tray.dart';
 
 void main() {
   runApp(
