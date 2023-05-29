@@ -4,10 +4,10 @@ import 'package:geolocator/geolocator.dart';
 
 typedef GPSRoute = List<Position>;
 
-class RouteState extends ChangeNotifier {
+class RouteList extends ChangeNotifier {
     late final BuildContext context;
 
-    RouteState(this.context);
+    RouteList(this.context);
 
     final List<GPSRoute> _routes = [];
     List<GPSRoute> get routes => _routes;

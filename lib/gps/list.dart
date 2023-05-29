@@ -10,7 +10,7 @@ class RoutesList extends StatelessWidget {
 
   @override
   Widget build (BuildContext context) {
-      return Consumer<RouteState>(
+      return Consumer<RouteList>(
           builder: (context, state, _) {
               var routes = state.routes;
               return ListView.builder(

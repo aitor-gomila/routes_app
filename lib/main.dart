@@ -12,8 +12,10 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => RouteState(context)),
-        Provider(create: (context) => RecordingService(context))
+        ChangeNotifierProvider(create: (context) => RouteList(context)),
+        Provider(create: (context) => RecordingService(context)),
+        Provider(create: (context) => AndroidNotificationService(context)),
+        Provider(create: (context) => TrayService()),
       ],
       child: const Application(),
     )
@@ -42,7 +44,7 @@ class HomePage extends StatelessWidget {
 
   void _onItemPressed(BuildContext context, int index) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      var state = context.read<RouteState>();
+      var state = context.read<RouteList>();
       var routes = state.routes;
       var route = routes[index];
 

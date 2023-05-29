@@ -7,7 +7,7 @@ import 'package:routes_app/disposable.dart';
 import 'package:routes_app/gps/state.dart';
 
 class RecordingService extends Disposable {
-    late final RouteState _state;
+    late final RouteList _routeList;
     final GPSRoute _currentRecording = [];
 
     Future<Position> _getCurrentLocation() {
@@ -26,7 +26,7 @@ class RecordingService extends Disposable {
     RecordingService(BuildContext context) {
       _timer = RestartableTimer(_timerInterval, _addCurrentLocation);
 
-      _state = context.read<RouteState>();
+      _routeList = context.read<RouteList>();
     }
     // ignore: unused_field
     late final RestartableTimer _timer;
@@ -49,7 +49,7 @@ class RecordingService extends Disposable {
     void startRecording() {
       // stop recording before starting a new one
       stopRecording();
-      _state.add(_currentRecording);
+      _routeList.add(_currentRecording);
       _startTimer();
     }
 
