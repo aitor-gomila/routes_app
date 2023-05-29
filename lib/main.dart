@@ -10,9 +10,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => RouteState(),
-        ),
+        ChangeNotifierProvider(create: (context) => RouteState(context)),
         Provider(create: (context) => RecordingService(context))
       ],
       child: const Application(),
@@ -27,7 +25,7 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Routes App",
+      title: "GPS Routes",
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -61,7 +59,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Routes App"),
+        title: const Text("GPS Routes"),
       ),
       body: RoutesList(onItemPressed: _onItemPressed)
     );

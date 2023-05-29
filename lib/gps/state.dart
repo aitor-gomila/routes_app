@@ -1,9 +1,14 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 
 typedef GPSRoute = List<Position>;
 
 class RouteState extends ChangeNotifier {
+    late final BuildContext context;
+
+    RouteState(this.context);
+
     final List<GPSRoute> _routes = [];
     List<GPSRoute> get routes => _routes;
 
