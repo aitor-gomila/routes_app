@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:routes_app/gps/state.dart';
+import 'package:routes_app/server/route.dart';
+import 'package:routes_app/consumer/material/routes/view.dart';
 
-class RoutesList extends StatelessWidget {
-  const RoutesList({super.key, required this.onItemPressed});
+class MaterialRouteList extends StatelessWidget {
+  const MaterialRouteList({super.key});
 
-  final void Function(BuildContext, int) onItemPressed;
+  void _routeItemPressed(BuildContext context, int index) {
+    var state = context.read<RouteList>();
+    var routes = state.routes;
+    var route = routes[index];
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MaterialRouteViewFullscreen(route)));
+  }
 
   @override
   Widget build (BuildContext context) {
@@ -22,7 +29,7 @@ class RoutesList extends StatelessWidget {
 
                       return InkWell(
                         child: Text(route.first.timestamp.toString()),
-                        onTap: () => onItemPressed(context, index),
+                        onTap: () => _routeItemPressed(context, index),
                       );
                   }
               );
