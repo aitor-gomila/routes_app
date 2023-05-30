@@ -17,6 +17,9 @@ dependencies:
   google_maps_flutter: ^2.2.7
   async: ^2.11.0
   system_tray: ^2.0.3
+  libadwaita: ^1.2.5
+  fluent_ui: ^4.6.2
+  macos_ui: ^1.12.2
 
 dev_dependencies:
   flutter_test:
