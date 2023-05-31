@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:routes_app/consumer/material/routes/list.dart';
+import 'package:routes_app/consumer/material/recording/recording_view.dart';
 
 class MaterialApplication extends StatefulWidget {
   const MaterialApplication({super.key});
@@ -11,7 +12,8 @@ class MaterialApplication extends StatefulWidget {
 
 class _StateMaterialApplication extends State<MaterialApplication> {
   final List<Widget> _navigationBarWidget = [
-    const MaterialRouteList()
+    const MaterialRouteList(),
+    const MaterialRecordingView(),
   ];
 
   int _navigationBarIndex = 0;
