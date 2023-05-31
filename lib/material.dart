@@ -38,7 +38,8 @@ class _StateMaterialApplication extends State<MaterialApplication> {
           NavigationDestination(icon: Icon(Icons.alt_route), label: "Routes"),
           NavigationDestination(icon: Icon(Icons.camera_alt), label: "Recording")
         ],
-        onDestinationSelected: _navigationBarItemPressed
+        onDestinationSelected: _navigationBarItemPressed,
+        selectedIndex: _navigationBarIndex,
       ),
     ),
     );
