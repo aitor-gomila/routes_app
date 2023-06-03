@@ -42,8 +42,8 @@ class _StateMaterialApplication extends State<MaterialApplication> {
       body: _navigationBarWidget[_navigationBarIndex],
       bottomNavigationBar: NavigationBar(
         destinations: [
-          NavigationDestination(icon: Icon(Icons.alt_route), label: _navigationBarTitles[0]),
-          NavigationDestination(icon: Icon(Icons.camera_alt), label: _navigationBarTitles[1])
+          NavigationDestination(icon: const Icon(Icons.alt_route), label: _navigationBarTitles[0]),
+          NavigationDestination(icon: const Icon(Icons.camera_alt), label: _navigationBarTitles[1])
         ],
         onDestinationSelected: _navigationBarItemPressed,
         selectedIndex: _navigationBarIndex,
