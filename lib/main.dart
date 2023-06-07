@@ -22,7 +22,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => RouteList(context)),
-        Provider(create: (context) => RecordingService(context)),
+        ChangeNotifierProvider(create: (context) => RecordingService(context)),
         Provider(create: (context) => AndroidNotificationService(context)),
         Provider(create: (context) => TrayService()),
       ],

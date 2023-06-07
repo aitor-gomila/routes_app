@@ -7,7 +7,7 @@ import 'package:routes_app/static/disposable.dart';
 
 import 'package:routes_app/server/route.dart';
 
-class RecordingService extends Disposable {
+class RecordingService extends ChangeNotifier implements Disposable {
     late final RouteList _routeList;
     final GPSRoute _currentRecording = [];
 
@@ -44,6 +44,7 @@ class RecordingService extends Disposable {
 
     void pauseRecording() {
       _stopTimer();
+      notifyListeners();
     }
 
     // saves the current recording and starts another one
@@ -58,10 +59,12 @@ class RecordingService extends Disposable {
     void stopRecording() {
       _stopTimer();
       _clearCurrentRecording();
+      notifyListeners();
     }
 
     @override
     void dispose() {
+      super.dispose();
       stopRecording();
     }
 }

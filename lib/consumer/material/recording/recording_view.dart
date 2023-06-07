@@ -8,7 +8,7 @@ class MaterialRecordingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var recordingService = context.read<RecordingService>();
+    var recordingService = context.watch<RecordingService>();
     return Text(recordingService.isRecordingActive ? "ACTIVE" : "STOPPED");
   }
 }
