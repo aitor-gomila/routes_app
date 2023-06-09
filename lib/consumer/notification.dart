@@ -10,12 +10,12 @@ import 'package:routes_app/server/recording.dart';
 
 class AndroidNotificationService extends Disposable {
   late final RecordingService _recordingService;
+  final int _notificationId = 0;
 
   AndroidNotificationService(BuildContext context) {
     if (!OS.isAndroid) return;
 
-    _recordingService = context.read<RecordingService>();
-    showNotification();
+    _recordingService = context.read<RecordingService>(); 
   }
 
   Future<void> initNotification() async {
@@ -26,18 +26,25 @@ class AndroidNotificationService extends Disposable {
   }
 
   void showNotification() {
-    var androidNotificationDetails = const AndroidNotificationDetails("org.aitor_gomila.routes_app", "Routes app",
-        playSound: false,
-        ongoing: true,
-        actions: [
-          AndroidNotificationAction("start-recording", "Start recording"),
-          AndroidNotificationAction("stop-recording", "Stop recording")
-        ],
-      );
+    const startNotificationAction = AndroidNotificationAction("start-recording", "start");
+    const stopNotificationAction = AndroidNotificationAction("stop-recording", "stop");
 
-    FlutterLocalNotificationsPlugin().show(0, "Routes App", _recordingService.isRecordingActive ? "Recording ongoing" : "Recording stopped", NotificationDetails(android: androidNotificationDetails));
+    final androidNotificationDetails = AndroidNotificationDetails("org.aitor_gomila.routes_app", "Routes app",
+      playSound: false,
+      ongoing: true,
+      actions: [
+        // Show stop message if recording, otherwise show start message
+        _recordingService.isRecordingActive ?stopNotificationAction : startNotificationAction
+      ],
+    );
+
+    final notificationDetails = NotificationDetails(android: androidNotificationDetails);
+
+    FlutterLocalNotificationsPlugin().show(_notificationId, "Routes App", _recordingService.isRecordingActive ? "Recording ongoing" : "Recording stopped", notificationDetails);
   }
 
   @override
-  void dispose() {}
+  void dispose() {
+    
+  }
 }
