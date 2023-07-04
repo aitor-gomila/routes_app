@@ -1,10 +1,17 @@
 import 'package:flutter/foundation.dart';
+import 'package:routes_app/static/os/common.dart';
 
-class OS {
-  static const isLinux = false;
-  static const isWindows = false;
-  static const isMacOS = false;
-  static const isAndroid = false;
-  static const isIOS = false;
-  static const isWeb = kIsWeb;
+class OS implements IOS {
+  @override
+  final isLinux = false;
+  @override
+  final isWindows = false;
+  @override
+  final isMacOS = false;
+  @override
+  final isAndroid = false;
+  @override
+  final isIOS = false;
+  @override
+  final isWeb = kIsWeb;
 }

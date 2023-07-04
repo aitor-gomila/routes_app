@@ -1,10 +1,17 @@
 import 'dart:io';
+import 'package:routes_app/static/os/common.dart';
 
-class  OS {
-  static final isLinux = Platform.isLinux;
-  static final isWindows = Platform.isWindows;
-  static final isMacOS = Platform.isMacOS;
-  static final isAndroid = Platform.isAndroid;
-  static final isIOS = Platform.isIOS;
-  static const isWeb = false;
+class OS implements IOS {
+  @override
+  final bool isLinux = Platform.isLinux;
+  @override
+  final bool isWindows = Platform.isWindows;
+  @override
+  final bool isMacOS = Platform.isMacOS;
+  @override
+  final bool isAndroid = Platform.isAndroid;
+  @override
+  final bool isIOS = Platform.isIOS;
+  @override
+  final bool isWeb = false;
 }
