@@ -12,7 +12,7 @@ import 'package:routes_app/consumer/tray.dart';
 import 'package:routes_app/material.dart';
 
 Widget getMainApplication() {
-  if (OS.isAndroid) return const MaterialApplication();
+  if (OS().isAndroid) return const MaterialApplication();
   // For web, or if anything else fails...
   return const MaterialApplication();
 }

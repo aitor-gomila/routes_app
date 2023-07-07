@@ -13,7 +13,7 @@ class AndroidNotificationService extends Disposable {
   final int _notificationId = 0;
 
   AndroidNotificationService(BuildContext context) {
-    if (!OS.isAndroid) return;
+    if (!OS().isAndroid) return;
 
     _recordingService = context.read<RecordingService>();
     // Initialize service, then show notification

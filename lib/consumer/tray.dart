@@ -10,7 +10,7 @@ class TrayService extends Disposable {
   late final SystemTray _systemTray;
 
   TrayService() {
-    if(!(OS.isWindows || OS.isLinux || OS.isMacOS)) return;
+    if(!(OS().isWindows || OS().isLinux || OS().isMacOS)) return;
     initSystemTray();
   }
 
